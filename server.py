@@ -17,6 +17,18 @@ def init_db():
         )
     """)
 
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS expenses (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT,
+            description TEXT NOT NULL,
+            amount INTEGER NOT NULL,
+            date TEXT NOT NULL,
+            category TEXT NOT NULL,
+            user_id INTEGER,
+            FOREIGN KEY(user_id) REFERENCES users(id)
+        )
+    """)
     connection.commit() # Save changes to the DB
     connection.close()  # Close the connection to the DB
 
@@ -47,6 +59,32 @@ def register():
     }), 201
 
 
+# ---------- EXPENSES ----------
+@app.post('/api/expenses')
+def create_expenses():
+    new_expense = request.get_json()
+    print(new_expense)
+
+    title = new_expense["title"]
+    description = new_expense["description"]
+    amount = new_expense["amount"]
+    date = new_expense["date"]
+    category = new_expense["category"]
+    user_id = new_expense["user_id"]
+
+
+    connection = sqlite3.connect(DB_NAME) # Open a connection to the DB named "budget_manager.db"
+    cursor = connection.cursor() # Creates a cursor/tool that lets you send commands(SELECT,INSERT,...) to the DB.
+    cursor.execute("""
+        INSERT INTO expenses (title, description, amount, date, category, user_id)
+        VALUES (?, ?, ?, ?, ?, ?)""", (title, description, amount, date, category, user_id)) # Executes SQL Statement
+    connection.commit() # Saves the changes
+    connection.close()  # Close the connection
+
+    return jsonify({
+        "success": True,
+        "message": "Expense created successfully"
+    }), 201
 
 
 
