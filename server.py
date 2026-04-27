@@ -333,7 +333,13 @@ def about():
 # CONTACT PAGE http://127.0.0.1:5000/contact
 @app.get('/contact')
 def contact():
-    return render_template("contact.html")
+    info = {
+        "address": "123 Luxury Ave, San Diego, CA 92101",
+        "phone": "(555) 987-6543",
+        "email": "info@luxestate.com",
+        "hours": "Mon - Fri: 9:00 AM - 6:00 PM"
+    }
+    return render_template("contact.html", data=info)
 
 
 
