@@ -1,0 +1,117 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock title %} {% block
+content %}
+
+<div class="hero-section">
+  <div class="hero-overlay">
+    <h1 class="display-3 fw-bold text-white mb-3">Find Your Dream Home</h1>
+    <p class="lead text-white mb-4">
+      Luxury properties in the most sought-after locations.
+    </p>
+    <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg px-5"
+      >Get In Touch</a
+    >
+  </div>
+</div>
+
+<div class="container my-5 text-center">
+  <h2 class="mb-3">Welcome, {{ name }}</h2>
+  <p class="text-muted fs-5">
+    We help you find the perfect property tailored to your lifestyle and budget.
+  </p>
+</div>
+
+<div class="container mb-5">
+  <h3 class="text-center mb-4">Featured Listings</h3>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <img
+          src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80"
+          class="card-img-top"
+          style="height: 200px; object-fit: cover"
+          alt="Property"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Modern Villa</h5>
+          <p class="card-text text-muted">4 bed · 3 bath · 2,800 sqft</p>
+          <p class="fw-bold text-dark">$1,250,000</p>
+          <a href="{{ url_for('contact') }}" class="btn btn-dark w-100"
+            >Schedule a Visit</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <img
+          src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80"
+          class="card-img-top"
+          style="height: 200px; object-fit: cover"
+          alt="Property"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Beachfront Condo</h5>
+          <p class="card-text text-muted">2 bed · 2 bath · 1,400 sqft</p>
+          <p class="fw-bold text-dark">$875,000</p>
+          <a href="{{ url_for('contact') }}" class="btn btn-dark w-100"
+            >Schedule a Visit</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <img
+          src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80"
+          class="card-img-top"
+          style="height: 200px; object-fit: cover"
+          alt="Penthouse"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Downtown Penthouse</h5>
+          <p class="card-text text-muted">3 bed · 2 bath · 2,100 sqft</p>
+          <p class="fw-bold text-dark">$2,100,000</p>
+          <a href="{{ url_for('contact') }}" class="btn btn-dark w-100"
+            >Schedule a Visit</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-dark text-white py-5">
+  <div class="container text-center">
+    <h3 class="mb-4">Why Choose LuxEstate?</h3>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h2>🏆</h2>
+        <h5 class="fw-bold">Award Winning</h5>
+        <p class="text-muted">
+          Recognized as the top real estate agency in San Diego for 5
+          consecutive years.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h2>🤝</h2>
+        <h5 class="fw-bold">Trusted Agents</h5>
+        <p class="text-muted">
+          Our agents are experienced, certified, and dedicated to finding your
+          perfect home.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h2>📍</h2>
+        <h5 class="fw-bold">Prime Locations</h5>
+        <p class="text-muted">
+          We specialize in the most desirable neighborhoods across Southern
+          California.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
